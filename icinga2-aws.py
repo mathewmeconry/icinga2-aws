@@ -3,9 +3,10 @@ import argparse
 import os
 import shutil
 import subprocess
+import configparser
 
 def writeTemplate(template, targetFile, targetFolder):
-    with open('/etc/icinga2/conf.d/hosts/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
+    with open(icinga2ConfigDir + 'conf.d/hosts/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
         template = template
         template = template.replace('{HOST}', instance.id)
         template = template.replace('{IP}', instance.public_ip_address)
@@ -25,7 +26,7 @@ def walklevel(some_dir, level=1):
             del dirs[:]
 
 def cleanupHosts(instances):
-    for x in walklevel("/etc/icinga2/conf.d/hosts/"):
+    for x in walklevel(icinga2ConfigDir + "conf.d/hosts/"):
         instanceActive = False
         if (x[0].find('i-') > -1):
             for instance in instances:
@@ -34,6 +35,11 @@ def cleanupHosts(instances):
 
             if instanceActive == False:
                 shutil.rmtree(x[0])
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+icinga2ConfigDir = config['Default']['icinga2ConfigDir']
 
 parser = argparse.ArgumentParser(description='AWS for Icinga 2')
 parser.add_argument('-t', '--tags', nargs='+', required=True, help='Tag Filter: Key value pair')
@@ -57,12 +63,12 @@ instances = ec2.instances.filter(
     Filters=filters)
 
 for instance in instances:
-    if not os.path.exists("/etc/icinga2/conf.d/hosts/" + instance.id):
-        os.makedirs("/etc/icinga2/conf.d/hosts/" + instance.id)
+    if not os.path.exists(icinga2ConfigDir + "conf.d/hosts/" + instance.id):
+        os.makedirs(icinga2ConfigDir + "conf.d/hosts/" + instance.id)
         writeTemplate(templateHost, instance.id, instance.id)
         writeTemplate(templateCheck, 'checks', instance.id)
 
 cleanupHosts(instances)
 
-subprocess.call('/etc/init.d/icinga2 reload')
+subprocess.call(config['Default']['icinga2ReloadCommand'])
 
