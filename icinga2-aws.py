@@ -70,5 +70,5 @@ for instance in instances:
 
 cleanupHosts(instances)
 
-subprocess.call(config['Default']['icinga2ReloadCommand'])
+subprocess.call(config['Default']['icinga2ReloadCommand'], shell=True)
 
