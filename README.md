@@ -23,7 +23,16 @@ Run install.sh script
                             Which Template should be used for the host
       -tc TEMPLATECHECK, --template-check TEMPLATECHECK
                             Which Template should be used for the checks
-                        
+                
+## Tag Parameter
+The Tags are in following format:  
+{Tagname}:{Tagvalue}  
+Multiple tags are delimited with a space  
+  
+## Interval update  
+To update your config with a specific interval, use the cronjobs of your os  
+Just use the same command  
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
