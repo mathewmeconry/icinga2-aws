@@ -1,0 +1,9 @@
+
+name: icinga2-aws
+description: "file:///README.md"
+url: "https://github.com/mathewmeconry/icinga2-aws"
+tags: Statistic
+vendor: Linux
+target: Operating System
+type: Add-on
+license: MIT
