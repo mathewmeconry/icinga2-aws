@@ -1,9 +1,28 @@
-
 name: icinga2-aws
 description: "file:///README.md"
-url: "https://github.com/mathewmeconry/icinga2-aws"
+url: "https://github.com/mathewmeconry/check_couchbase"
 tags: Statistic
 vendor: Linux
 target: Operating System
 type: Add-on
 license: MIT
+releases: 
+  - 
+    name: 0.3
+    description: "0.3 Stable Version"
+    files: 
+      - 
+        name: icinga2-aws.py
+        url: "file:///icinga2-aws.py"
+        description: "Script itself"
+        checksum: ce2d0d4915b0ce1fe4888816fb81af5f
+      - 
+        name: setup.py
+        url: "file:///setup.py"
+        description: "pyhton setup"
+        checksum: 28828ea87fa0d0f4b79d6726b53ecf7d
+      - 
+        name: install.sh
+        url: "file:///install.sh"
+        description: "Install script"
+        checksum: 8c52d013b66a0eba94a589ea34075159
