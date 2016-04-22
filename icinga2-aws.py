@@ -5,7 +5,7 @@ import shutil
 import subprocess
 
 def writeTemplate(template, targetFile, targetFolder):
-    with open('/tmp/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
+    with open('/etc/icinga2/conf.d/hosts/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
         template = template
         template = template.replace('{HOST}', instance.id)
         template = template.replace('{IP}', instance.public_ip_address)
@@ -25,7 +25,7 @@ def walklevel(some_dir, level=1):
             del dirs[:]
 
 def cleanupHosts(instances):
-    for x in walklevel("/tmp/"):
+    for x in walklevel("/etc/icinga2/conf.d/hosts/"):
         instanceActive = False
         if (x[0].find('i-') > -1):
             for instance in instances:
@@ -57,8 +57,8 @@ instances = ec2.instances.filter(
     Filters=filters)
 
 for instance in instances:
-    if not os.path.exists("/tmp/" + instance.id):
-        os.makedirs("/tmp/" + instance.id)
+    if not os.path.exists("/etc/icinga2/conf.d/hosts/" + instance.id):
+        os.makedirs("/etc/icinga2/conf.d/hosts/" + instance.id)
         writeTemplate(templateHost, instance.id, instance.id)
         writeTemplate(templateCheck, 'checks', instance.id)
 
