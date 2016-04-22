@@ -33,6 +33,12 @@ Multiple tags are delimited with a space
 To update your config with a specific interval, use the cronjobs of your os  
 Just use the same command  
 
+## Templates  
+For templates are following parameters available:  
+{HOST} = instance id  
+{IP} = instance public ip 
+  
+If you need more just create a feature request  
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
