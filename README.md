@@ -28,6 +28,10 @@ Run install.sh script
 The Tags are in following format:  
 {Tagname}:{Tagvalue}  
 Multiple tags are delimited with a space  
+  
+## Interval update  
+To update your config with a specific interval, use the cronjobs of your os  
+Just use the same command  
 
 ## Contributing
 1. Fork it!
