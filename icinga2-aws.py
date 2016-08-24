@@ -49,7 +49,7 @@ parser.add_argument('-tc', '--template-check', dest='templateCheck', type=open, 
 args = parser.parse_args()
 
 filters = []
-
+filters.append({"Name": 'instance-state-name', "Values": ['running']})
 for tag in args.tags:
     tag = tag.split(':')
     filters.append({"Name": "tag:"+tag[0], "Values": [tag[1]]})
