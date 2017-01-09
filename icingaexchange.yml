@@ -8,14 +8,14 @@ type: Add-on
 license: MIT
 releases: 
   - 
-    name: 0.3
-    description: "0.3 Stable Version"
+    name: 0.4
+    description: "0.4 Remove pnp4nagios perfdata if set"
     files: 
       - 
         name: icinga2-aws.py
         url: "file:///icinga2-aws.py"
         description: "Script itself"
-        checksum: ce2d0d4915b0ce1fe4888816fb81af5f
+        checksum: 8cabc27373a43fc58f301d625e4c3f8d  
       - 
         name: setup.py
         url: "file:///setup.py"

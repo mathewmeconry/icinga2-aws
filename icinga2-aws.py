@@ -35,6 +35,9 @@ def cleanupHosts(instances):
 
             if instanceActive == False:
                 shutil.rmtree(x[0])
+    
+    if os.path.exists(config['Default']['php4nagiosPerfDataFolder'] + instance.id):
+        os.remove(config['Default']['php4nagiosPerfDataFolder'] + instance.id)
 
 config = configparser.ConfigParser()
 config.read('config.ini')
