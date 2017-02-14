@@ -8,6 +8,25 @@ type: Add-on
 license: MIT
 releases: 
   - 
+    name: 0.5
+    description: "0.5 fix bug in perfdata deletion"
+    files: 
+      - 
+        name: icinga2-aws.py
+        url: "file:///icinga2-aws.py"
+        description: "Script itself"
+        checksum: 3cbe030f7a17355d7ce9dc1bff25d27f  
+      - 
+        name: setup.py
+        url: "file:///setup.py"
+        description: "pyhton setup"
+        checksum: 28828ea87fa0d0f4b79d6726b53ecf7d
+      - 
+        name: install.sh
+        url: "file:///install.sh"
+        description: "Install script"
+        checksum: 8c52d013b66a0eba94a589ea34075159
+  - 
     name: 0.4
     description: "0.4 Remove pnp4nagios perfdata if set"
     files: 
