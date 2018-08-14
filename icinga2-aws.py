@@ -9,10 +9,12 @@ def writeTemplate(template, targetFile, targetFolder):
     with open(icinga2ConfigDir + 'conf.d/hosts/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
         template = template
         template = template.replace('{HOST}', instance.id)
-        template = template.replace('{PublicIP}', instance.public_ip_address)
         template = template.replace('{PrivateIP}', instance.private_ip_address)
-        # Backwards compatibility 
-        template = template.replace('{IP}', instance.public_ip_address)
+
+        if instance.public_ip_address:
+            template = template.replace('{PublicIP}', instance.public_ip_address)
+            # Backwards compatibility 
+            template = template.replace('{IP}', instance.public_ip_address)
         out.write(template)
         out.flush()
 
@@ -40,7 +42,7 @@ def cleanupHosts(instances):
                 shutil.rmtree(x[0])
                 for directory in os.listdir(config['Default']['php4nagiosPerfDataFolder']):
                     if(directory.find(instance.id) > -1):
-                        if os.path.exists(config['Default']['php4nagiosPerfDataFolder'] + directory):
+                        if os.path.exists(config['Default']['php4nagiosPerfDataFolder'] + directory) and os.path.exists(config['Default']['php4nagiosPerfDataFolder'] + instance.id):
                             shutil.rmtree(config['Default']['php4nagiosPerfDataFolder'] + instance.id)
 
 
