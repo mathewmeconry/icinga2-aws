@@ -13,6 +13,7 @@ Run install.sh script
 - command to reload Icinga2 configs
 
 ## Usage
+```
 usage: icinga2-aws.py [-h] -t TAGS [TAGS ...] -th TEMPLATEHOST -tc
                       TEMPLATECHECK [-nc]
                       {clean} ...
@@ -34,6 +35,7 @@ subcommands:
 
   {clean}               additional help
     clean               clean help
+```
                 
 ## Tag Parameter
 The Tags are in following format:  
