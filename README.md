@@ -1,5 +1,3 @@
-<snippet>
-  <content>
 # Icinga2-AWS
 Adds dynamically based on the passed filters and templates hosts with checks into icinga 2
 
@@ -71,5 +69,3 @@ sample usage of the --no-clean and clean feature
 
 ## License
 MIT
-</content>
-</snippet>
