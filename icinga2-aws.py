@@ -9,6 +9,9 @@ def writeTemplate(template, targetFile, targetFolder):
     with open(icinga2ConfigDir + 'conf.d/hosts/' + targetFolder + '/' + targetFile + '.conf', 'w') as out:
         template = template
         template = template.replace('{HOST}', instance.id)
+        template = template.replace('{PublicIP}', instance.public_ip_address)
+        template = template.replace('{PrivateIP}', instance.private_ip_address)
+        # Backwards compatibility 
         template = template.replace('{IP}', instance.public_ip_address)
         out.write(template)
         out.flush()

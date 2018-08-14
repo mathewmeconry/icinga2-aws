@@ -36,7 +36,8 @@ Just use the same command
 ## Templates  
 For templates are following parameters available:  
 {HOST} = instance id  
-{IP} = instance public ip 
+{IP} or {PublicIP} = instance public ip
+{PrivateIP} = instance private ip
   
 If you need more just create a feature request  
 ## Contributing
