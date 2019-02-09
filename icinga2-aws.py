@@ -45,11 +45,11 @@ def cleanupHosts(instances):
 
             if instanceActive == False:
                 shutil.rmtree(x[0])
-                for directory in os.listdir(config['Default']['php4nagiosPerfDataFolder']):
+                for directory in os.listdir(config['Default']['pnp4nagiosPerfDataFolder']):
                     if(directory.find(folder_instance_id) > -1):
-                        if os.path.exists(config['Default']['php4nagiosPerfDataFolder'] + directory):
+                        if os.path.exists(config['Default']['pnp4nagiosPerfDataFolder'] + directory):
                             shutil.rmtree(
-                                config['Default']['php4nagiosPerfDataFolder'] + folder_instance_id)
+                                config['Default']['pnp4nagiosPerfDataFolder'] + folder_instance_id)
 
 def get_instances(tags):
     filters = []
