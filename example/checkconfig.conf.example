@@ -1,0 +1,9 @@
+object Service "ping4" {
+  host_name = "{HOST}"
+  check_command = "ping4"
+}
+
+object Service "http" {
+  host_name = "{HOST}"
+  check_command = "http"
+}

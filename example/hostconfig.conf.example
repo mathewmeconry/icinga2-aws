@@ -1,0 +1,7 @@
+/* {HOST} gets replaced with the InstanceID */
+object Host {HOST} {
+  import "generic-host"
+
+  /* {PublicIP} gets replaced with the public IP of the instance */
+  address = "{PublicIP} "
+}

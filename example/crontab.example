@@ -1,0 +1,2 @@
+# This runs the script every 5 min with the templates provieded. Additionally it deletes all previous AWS-Instances in the hosts folder and pnp4nagios perfdata
+5 * * * * python icinga2-aws.py -t MY-TAG-NAME:MY-TAG-VALUE -th hostconfig.conf.example -tc checkconfig.conf.example
