@@ -80,7 +80,7 @@ def __add_main_parser(parser):
     parser.add_argument('-th', '--template-host', dest='templateHost', type=open,
                         required=True, help='Which Template should be used for the host')
     parser.add_argument('-tc', '--template-check', dest='templateCheck', type=open,
-                        required=True, help='Which Template should be used for the checks')
+                        required=False, help='Which Template should be used for the checks')
     parser.add_argument('-nc', '--no-clean', dest='noClean',
                         default=False, action='store_true', required=False, help='Don\'t clean host folders')
 
